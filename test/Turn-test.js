@@ -6,10 +6,10 @@ const Card = require('../src/Card')
 
 describe('Turn', () => {
   it('should be a function', () => {
-  const turn = new Turn()
+    const turn = new Turn()
 
-  expect(Turn).to.be.a('function')
-})
+    expect(Turn).to.be.a('function')
+  })
 
   it('should instantiate an instance of Turn', () => {
     const turn = new Turn()
