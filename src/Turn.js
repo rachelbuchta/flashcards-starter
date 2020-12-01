@@ -5,36 +5,25 @@ class Turn {
     this.isCorrect = false
   }
 
-  returnGuess() {
+  returnGuess = () => {
     return this.guess
   }
 
-  returnCard() {
+  returnCard = () => {
     return this.card
   }
 
-  evaluateGuess() {
-    if(this.guess === this.card.correctAnswer) {
-       this.isCorrect = true
+  evaluateGuess = () => {
+    if (this.guess === this.card.correctAnswer) {
+      this.isCorrect = true
     }
     return this.isCorrect
-}
+  }
 
-giveFeedback() {
-  if(this.isCorrect) {
-    return 'correct!'
-  } else {
-    return 'incorrect!'
+  giveFeedback = () => {
+    return this.isCorrect ? 'correct!' : 'incorrect!'
   }
 }
-}
-
-
-
-
-
-
-
 
 
 
