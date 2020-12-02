@@ -13,8 +13,8 @@ class Turn {
     return this.card
   }
 
-  evaluateGuess = () => {
-    if (this.guess === this.card.correctAnswer) {
+  evaluateGuess = (guess) => {
+    if (guess === this.card.correctAnswer) {
       this.isCorrect = true
     }
     return this.isCorrect
