@@ -2,48 +2,51 @@ const Turn = require('../src/Turn')
 
 
 class Round {
-  constructor(deck) {
+  constructor(deck, currentCard) {
     this.deck = deck
-    // this.currentCard = deck.cards
     this.turns = 0
+    this.currentCard = deck.cards[this.turns]
     this.incorrectGuesses = []
-
-
   }
 
 
 
   returnCurrentCard = () => {
-    // console.log("number turns:", this.turns)
-    const currentCard = this.deck.cards[this.turns]
-    // this.turns in brackets
-    // console.log("returnCard:", currentCard)
-    return currentCard
+    this.currentCard = this.deck.cards[this.turns]
+    return this.currentCard
   }
 
   takeTurn = (guess, card) => {
       const turn = new Turn(guess, card)
-      console.log(turn)
-      this.turns ++
+      console.log(turn.guess)
+      // console.log(this.turns)
+
       turn.evaluateGuess()
-      this.returnCurrentCard()
+      if (this.currentCard.correctAnswer !== turn.guess) {
+        this.incorrectGuesses.push(this.currentCard.id)
+      }
+
+      // this.storeIncorrectGuesses()
+      // console.log(this.currentCard)
+      // console.log(turn.evaluateGuess())
       turn.giveFeedback()
+      // console.log(turn.giveFeedback())
+      this.turns ++
+      // console.log(this.turns)
       this.returnCurrentCard()
-      // console.log("number turns:", this.turns)
-      // const secondTurn = new Turn(guess, card)
-      // console.log("turn:", turn)
-      // console.log("2turn:", secondTurn)
 
-      // console.log("boo:", turn.evaluateGuess())
-
-      // console.log("feed:", turn.giveFeedback())
-
-
+      // console.log(this.returnCurrentCard())
   }
 
-  // makeGuess = (guess, card) => {
-  //   const newTurn = new Turn(guess, card)
-  //   console.log("turn:", newTurn)
+  // storeIncorrectGuesses = (guess, card) => {
+  //   const turn = new Turn(guess, card)
+  //   console.log(this.currentCard.id)
+  //   console.log(this.currentCard.correctAnswer)
+  //   console.log(turn.guess)
+  //   if (this.currentCard.correctAnswer !== turn.guess) {
+  //     this.incorrectGuesses.push(this.currentCard.id)
+  //   }
+  //
   // }
 }
 

@@ -54,24 +54,13 @@ describe('Round', () => {
     expect(round.returnCurrentCard()).to.equal(deck.cards[0])
   })
 
-  it('should create a new instance of Turn when a guess is made', () => {
-    const turn = new Turn()
+  // it('should create a new instance of Turn when a guess is made', () => {
+  //   const turn = new Turn()
     // const secondTurn = new Turn()
 
-    expect(round.takeTurn('object', card)).to.be.an.instanceof(Turn)
+    // expect(round.takeTurn('object', card)).to.be.an.instanceof(Turn)
     // expect(round.takeTurn('wrong', card2)).to.be.an.instanceof(Turn)
-  })
-
-  it('should increase turns by 1', () => {
-    const turn = new Turn('object', card)
-    // const secondTurn = new Turn('wrong', card2)
-
-    round.takeTurn('object', card)
-    // round.takeTurn('wrong', card2)
-
-    expect(round.turns).to.equal(1)
-    // expect(round.turns).to.equal(2)
-  })
+  // })
 
   it('should evaluate if guess is correct or incorrect', () => {
     const turn = new Turn('object', card)
@@ -89,6 +78,17 @@ describe('Round', () => {
     expect(turn.giveFeedback()).to.equal('correct!')
   })
 
+  it('should increase turns by 1', () => {
+    const turn = new Turn('object', card)
+    // const secondTurn = new Turn('wrong', card2)
+
+    round.takeTurn('object', card)
+    // round.takeTurn('wrong', card2)
+
+    expect(round.turns).to.equal(1)
+    // expect(round.turns).to.equal(2)
+  })
+
   it('should return the next card in deck array as currentCard', () => {
     const turn = new Turn('object', card)
     // const secondTurn = new Turn('wrong', card2)
@@ -100,9 +100,9 @@ describe('Round', () => {
     // expect(round.returnCurrentCard()).to.equal(deck.cards[2])
   })
 
-  it.skip('should store incorrect guesses in an array by id', () => {
+  it('should store incorrect guesses in an array by id', () => {
     const turn = new Turn('object', card)
-    const secondTurn = new Turn('wrong', card2)
+    // const secondTurn = new Turn('wrong', card2)
 
     round.takeTurn('object', card)
     // round.takeTurn('wrong', card2)
