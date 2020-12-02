@@ -6,16 +6,16 @@ const Turn = require('../src/Turn')
 const Card = require('../src/Card')
 
 describe('Deck', () => {
-  let card1;
+  let card;
   let card2;
   let card3;
   let deck;
 
   beforeEach(function() {
-    card1 = new Card(2, 'Question1', ['blue', 'red', 'yellow'], 'yellow')
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
     card2 = new Card(4, 'Question2', ['correct','wrong','maybe'], 'correct')
     card3 = new Card(6, 'Question3', ['up', 'down', 'around'], 'up')
-    deck = new Deck([card1, card2, card3])
+    deck = new Deck([card, card2, card3])
   })
 
   it('should be a function', () => {
@@ -30,7 +30,7 @@ describe('Deck', () => {
 
   it('should store an array of cards', () => {
 
-    expect(deck.cards).to.deep.equal([card1, card2, card3])
+    expect(deck.cards).to.deep.equal([card, card2, card3])
   })
 
   it('should know how many cards are in the deck', () => {
