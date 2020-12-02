@@ -10,7 +10,7 @@ class Turn {
   }
 
   returnCard = () => {
-    console.log(this.card)
+    // console.log(this.card)
     return this.card
   }
 
@@ -26,7 +26,7 @@ class Turn {
 
 
   giveFeedback = () => {
-    console.log(this.evaluateGuess() ? 'correct!' : 'incorrect!')
+    // console.log(this.evaluateGuess() ? 'correct!' : 'incorrect!')
     return this.evaluateGuess() ? 'correct!' : 'incorrect!'
 
 

@@ -5,14 +5,16 @@ const Turn = require('../src/Turn')
 const Card = require('../src/Card')
 
 describe('Turn', () => {
-  let turn;
-  let card;
-  let secondTurn;
+  let turn
+  let card
+  let card2
+  let secondTurn
 
   beforeEach(function() {
-     card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object');
+     card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+     card2 = new Card(4, 'Question2', ['correct','wrong','maybe'], 'correct')
      turn = new Turn('object', card)
-     secondTurn = new Turn('array', card)
+     secondTurn = new Turn('wrong', card2)
   })
 
   it('should be a function', () => {
@@ -29,13 +31,13 @@ describe('Turn', () => {
   it('should take in a users guess as an argument', () => {
 
     expect(turn.guess).to.equal('object')
-    expect(secondTurn.guess).to.equal('array')
+    expect(secondTurn.guess).to.equal('wrong')
   })
 
   it('should take in current Card as an argument', () => {
 
     expect(turn.card).to.equal(card)
-    expect(secondTurn.card).to.equal(card)
+    expect(secondTurn.card).to.equal(card2)
   })
 
   // it('should have a property of isCorrect that defaults to false', () => {
@@ -47,13 +49,13 @@ describe('Turn', () => {
   it('should return users guess', () => {
 
     expect(turn.returnGuess()).to.equal('object')
-    expect(secondTurn.returnGuess()).to.equal('array')
+    expect(secondTurn.returnGuess()).to.equal('wrong')
   })
 
   it('should return Card', () => {
 
     expect(turn.returnCard()).to.equal(card)
-    expect(secondTurn.returnCard()).to.equal(card)
+    expect(secondTurn.returnCard()).to.equal(card2)
   })
 
   it('should check to see if the user guess is correct', () => {

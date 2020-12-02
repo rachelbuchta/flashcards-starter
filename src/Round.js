@@ -14,23 +14,29 @@ class Round {
 
 
   returnCurrentCard = () => {
-    const currentCard = this.deck.cards[0]
-    console.log("returnCard:", currentCard)
+    // console.log("number turns:", this.turns)
+    const currentCard = this.deck.cards[this.turns]
+    // this.turns in brackets
+    // console.log("returnCard:", currentCard)
     return currentCard
   }
 
   takeTurn = (guess, card) => {
-      this.turns ++
       const turn = new Turn(guess, card)
-
-      console.log("number turns:", this.turns)
-      // const secondTurn = new Turn(guess, card)
-      console.log("turn:", turn)
-      // console.log("2turn:", secondTurn)
+      console.log(turn)
+      this.turns ++
       turn.evaluateGuess()
-      console.log("boo:", turn.evaluateGuess())
+      this.returnCurrentCard()
       turn.giveFeedback()
-      console.log("feed:", turn.giveFeedback())
+      this.returnCurrentCard()
+      // console.log("number turns:", this.turns)
+      // const secondTurn = new Turn(guess, card)
+      // console.log("turn:", turn)
+      // console.log("2turn:", secondTurn)
+
+      // console.log("boo:", turn.evaluateGuess())
+
+      // console.log("feed:", turn.giveFeedback())
 
 
   }
