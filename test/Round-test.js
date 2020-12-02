@@ -41,7 +41,7 @@ describe('Round', () => {
 
   it('should have a property that counts number of turns and starts at 0', () => {
 
-    expect(round.turns).to.equal(0)
+    expect(round.turnsCount).to.equal(0)
   })
 
   it('should have a property that stores incorrect guesses', () => {
@@ -54,60 +54,51 @@ describe('Round', () => {
     expect(round.returnCurrentCard()).to.equal(deck.cards[0])
   })
 
-  // it('should create a new instance of Turn when a guess is made', () => {
-  //   const turn = new Turn()
-    // const secondTurn = new Turn()
-
-    // expect(round.takeTurn('object', card)).to.be.an.instanceof(Turn)
-    // expect(round.takeTurn('wrong', card2)).to.be.an.instanceof(Turn)
-  // })
-
   it('should evaluate if guess is correct or incorrect', () => {
-    const turn = new Turn('object', card)
+    const turn = new Turn('wrong', card2)
 
-    round.takeTurn('object', card)
 
-    expect(turn.evaluateGuess()).to.equal(true)
-  })
+    round.takeTurn('wrong', card2)
 
-  it('should return a string of correct or incorrect', () => {
-    const turn = new Turn('object', card)
-
-    round.takeTurn('object', card)
-
-    expect(turn.giveFeedback()).to.equal('correct!')
-  })
-
-  it('should increase turns by 1', () => {
-    const turn = new Turn('object', card)
-    // const secondTurn = new Turn('wrong', card2)
-
-    round.takeTurn('object', card)
-    // round.takeTurn('wrong', card2)
-
-    expect(round.turns).to.equal(1)
-    // expect(round.turns).to.equal(2)
-  })
-
-  it('should return the next card in deck array as currentCard', () => {
-    const turn = new Turn('object', card)
-    // const secondTurn = new Turn('wrong', card2)
-
-    round.takeTurn('object', card)
-    // round.takeTurn('wrong', card2)
-
-    expect(round.returnCurrentCard()).to.equal(deck.cards[1])
-    // expect(round.returnCurrentCard()).to.equal(deck.cards[2])
+    expect(turn.evaluateGuess()).to.equal(false)
   })
 
   it('should store incorrect guesses in an array by id', () => {
-    const turn = new Turn('object', card)
-    // const secondTurn = new Turn('wrong', card2)
+    const turn = new Turn('wrong', card2)
+    const secondTurn = new Turn('array', card)
+    const thirdTurn = new Turn('up', card3)
 
-    round.takeTurn('object', card)
-    // round.takeTurn('wrong', card2)
+    round.takeTurn('array', card)
+    round.takeTurn('wrong', card2)
+    round.takeTurn('up', card3)
 
-    expect(round.incorrectGuesses).to.deep.equal([])
-    // expect(round.incorrectGuesses).to.deep.equal([card2])
+    expect(round.incorrectGuesses).to.deep.equal([1, 4])
+    expect(round.incorrectGuesses.length).to.equal(2)
+
   })
+
+  it('should return a string of correct or incorrect', () => {
+    const turn = new Turn('wrong', card2)
+
+    round.takeTurn('wrong', card2)
+
+    expect(turn.giveFeedback()).to.equal('incorrect!')
+  })
+
+  it('should increase turns by 1', () => {
+    const turn = new Turn('wrong', card2)
+
+    round.takeTurn('wrong', card2)
+
+    expect(round.turnsCount).to.equal(1)
+  })
+
+  it('should return the next card in deck array as currentCard', () => {
+    const turn = new Turn('wrong', card2)
+
+    round.takeTurn('wrong', card2)
+
+    expect(round.returnCurrentCard()).to.equal(deck.cards[1])
+  })
+
 })
