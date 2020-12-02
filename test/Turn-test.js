@@ -38,11 +38,11 @@ describe('Turn', () => {
     expect(secondTurn.card).to.equal(card)
   })
 
-  it('should have a property of isCorrect that defaults to false', () => {
-
-    expect(turn.isCorrect).to.equal(false)
-    expect(secondTurn.isCorrect).to.equal(false)
-  })
+  // it('should have a property of isCorrect that defaults to false', () => {
+  //
+  //   expect(turn.isCorrect).to.equal(false)
+  //   expect(secondTurn.isCorrect).to.equal(false)
+  // })
 
   it('should return users guess', () => {
 
@@ -58,20 +58,20 @@ describe('Turn', () => {
 
   it('should check to see if the user guess is correct', () => {
 
-    expect(turn.evaluateGuess('object')).to.equal(turn.isCorrect, true)
-    expect(secondTurn.evaluateGuess('array')).to.equal(secondTurn.isCorrect, false)
+    expect(turn.evaluateGuess()).to.equal(true)
+    expect(secondTurn.evaluateGuess()).to.equal(false)
   })
 
   it('should return a string of correct if guess is right', () => {
 
-    turn.evaluateGuess('object')
+    turn.evaluateGuess()
 
     expect(turn.giveFeedback()).to.equal('correct!')
   })
 
   it('should return a string of incorrect if guess is wrong', () => {
 
-    secondTurn.evaluateGuess('array')
+    secondTurn.evaluateGuess()
 
     expect(secondTurn.giveFeedback()).to.equal('incorrect!')
   })

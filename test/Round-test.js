@@ -10,7 +10,6 @@ describe('Round', () => {
   let card;
   let card2;
   let card3;
-  let turn;
   let deck;
   let round;
 
@@ -20,7 +19,6 @@ describe('Round', () => {
     card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
     card2 = new Card(4, 'Question2', ['correct','wrong','maybe'], 'correct')
     card3 = new Card(6, 'Question3', ['up', 'down', 'around'], 'up')
-    turn = new Turn('object', card)
     deck = new Deck([card, card2, card3])
     round = new Round(deck)
 
@@ -36,9 +34,24 @@ describe('Round', () => {
     expect(round).to.be.an.instanceof(Round)
   })
 
-  it('should have a property that holds the currentCard from deck cards array', () => {
+  it('should have a property that holds deck array', () => {
 
-    expect(round.currentCard).to.equal(deck.cards)
+    expect(round.deck).to.deep.equal(deck)
+  })
+
+  // it('should have a property that holds the currentCard from deck cards array', () => {
+  //
+  //   expect(round.currentCard).to.equal(deck.cards)
+  // })
+
+  it('should have a property that counts number of turns and starts at 0', () => {
+
+    expect(round.turns).to.equal(0)
+  })
+
+  it('should have a property that stores incorrect guesses', () => {
+
+    expect(round.incorrectGuesses).to.deep.equal([])
   })
 
   it('should return currentCard', () => {
@@ -46,13 +59,18 @@ describe('Round', () => {
     expect(round.returnCurrentCard()).to.equal(deck.cards[0])
   })
 
-  it('should have a property that counts number of turns and starts at 0', () => {
+  it('should create a new instance of Turn when a guess is made', () => {
+    const turn = new Turn('object', card)
 
-    expect(round.turns).to.equal(0)
+
+
+
+    expect(round.takeTurn('object', card)).to.equal('correct!')
   })
 
-  it('should have a property that stores the users guess', () => {
 
-    expect(round.guess).to.equal('object')
-  })
+  // it('should have a property that stores the users guess', () => {
+  //
+  //   expect(round.guess).to.equal('object')
+  // })
 })
