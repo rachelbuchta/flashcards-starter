@@ -15,21 +15,32 @@ describe('Deck', () => {
     card1 = new Card(2, 'Question1', ['blue', 'red', 'yellow'], 'yellow')
     card2 = new Card(4, 'Question2', ['correct','wrong','maybe'], 'correct')
     card3 = new Card(6, 'Question3', ['up', 'down', 'around'], 'up')
-    deck = new Deck()
+    deck = new Deck([card1, card2, card3])
   })
 
   it('should be a function', () => {
-    const deck = new Deck()
+    // const deck = new Deck()
 
     expect(Deck).to.be.a('function')
   })
 
   it('should instantiate an instance of Deck', () => {
+    // const deck = new Deck()
 
     expect(deck).to.be.an.instanceof(Deck)
   })
 
+  it('should store an array of cards', () => {
+    // const deck = new Deck()
+    // const card1 = new Card(2, 'Question1', ['blue', 'red', 'yellow'], 'yellow')
+    // const card2 = new Card(4, 'Question2', ['correct','wrong','maybe'], 'correct')
+    // const card3 = new Card(6, 'Question3', ['up', 'down', 'around'], 'up')
+
+    expect(deck.cards).to.deep.equal([card1, card2, card3])
+  })
+
   it('should know how many cards are in the deck', () => {
+    // const deck = new Deck()
 
     expect(deck.countCards()).to.equal(3)
   })
