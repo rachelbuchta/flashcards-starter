@@ -25,6 +25,15 @@ class Round {
       this.returnCurrentCard()
   }
 
+  calculatePercentCorrect = () => {
+    const percent = this.incorrectGuesses.length/ this.turnsCount * 100
+    return Math.round(percent)
+  }
+
+  endRound = () => {
+    return `**Round Over!** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`
+  }
+
 
 }
 

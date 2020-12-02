@@ -101,4 +101,29 @@ describe('Round', () => {
     expect(round.returnCurrentCard()).to.equal(deck.cards[1])
   })
 
+  it('should calculate percent correct', () => {
+    const turn = new Turn('wrong', card2)
+    const secondTurn = new Turn('array', card)
+    const thirdTurn = new Turn('up', card3)
+
+    round.takeTurn('array', card)
+    round.takeTurn('wrong', card2)
+    round.takeTurn('up', card3)
+
+    expect(round.calculatePercentCorrect()).to.equal(67)
+  })
+
+  it('should print a string with the percent correct', () => {
+    const turn = new Turn('wrong', card2)
+    const secondTurn = new Turn('array', card)
+    const thirdTurn = new Turn('up', card3)
+
+    round.takeTurn('array', card)
+    round.takeTurn('wrong', card2)
+    round.takeTurn('up', card3)
+    round.calculatePercentCorrect()
+
+    expect(round.endRound()).to.equal('**Round Over!** You answered 67% of the questions correctly!')
+  })
+
 })
