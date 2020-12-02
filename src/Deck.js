@@ -4,7 +4,7 @@ class Deck {
   }
 
   countCards = () => {
-    console.log("deck:", this.cards[0])
+    // console.log("deck:", this.cards[0])
     return this.cards.length
   }
 }
