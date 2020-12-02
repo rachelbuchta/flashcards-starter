@@ -61,11 +61,21 @@ describe('Round', () => {
 
   it('should create a new instance of Turn when a guess is made', () => {
     const turn = new Turn('object', card)
+    // const secondTurn = new Turn('array', card)
 
 
 
 
     expect(round.takeTurn('object', card)).to.equal('correct!')
+    // expect(round.takeTurn('array', card)).to.equal('incorrect!')
+  })
+
+  it('should increase turns by 1', () => {
+    const turn = new Turn('object', card)
+
+    round.takeTurn('object', card)
+
+    expect(round.takeTurn('object', card)).to.equal(1)
   })
 
 

@@ -20,10 +20,17 @@ class Round {
   }
 
   takeTurn = (guess, card) => {
+      this.turns ++
       const turn = new Turn(guess, card)
+
+      console.log("number turns:", this.turns)
+      // const secondTurn = new Turn(guess, card)
       console.log("turn:", turn)
-      turn.evaluateGuess(guess)
+      // console.log("2turn:", secondTurn)
+      turn.evaluateGuess()
+      console.log("boo:", turn.evaluateGuess())
       turn.giveFeedback()
+      console.log("feed:", turn.giveFeedback())
 
 
   }
