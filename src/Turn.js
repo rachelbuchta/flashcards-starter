@@ -16,11 +16,16 @@ class Turn {
   evaluateGuess = (guess) => {
     if (guess === this.card.correctAnswer) {
       this.isCorrect = true
+        // console.log(this.isCorrect)
     }
+    console.log(this.isCorrect)
     return this.isCorrect
+
   }
 
   giveFeedback = () => {
+    // console.log(this.isCorrect)
+    console.log(this.isCorrect ? 'correct!' : 'incorrect!')
     return this.isCorrect ? 'correct!' : 'incorrect!'
   }
 }

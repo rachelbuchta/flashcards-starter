@@ -29,6 +29,7 @@ describe('Turn', () => {
   it('should take in a users guess as an argument', () => {
 
     expect(turn.guess).to.equal('object')
+    expect(secondTurn.guess).to.equal('array')
   })
 
   it('should take in current Card as an argument', () => {

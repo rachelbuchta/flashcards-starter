@@ -1,6 +1,8 @@
 class Round {
   constructor(deck) {
     this.currentCard = deck.cards
+    this.turns = 0
+    // this.guess = turn.guess
   }
 
 
@@ -9,6 +11,10 @@ class Round {
     console.log("returnCard:", this.currentCard)
     return this.currentCard
   }
+
+  // takeTurn = () => {
+  //   console.log(this.guess)
+  // }
 }
 
 
