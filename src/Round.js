@@ -19,7 +19,6 @@ class Round {
       if (this.currentCard.correctAnswer !== turn.guess) {
         this.incorrectGuesses.push(this.currentCard.id)
       }
-      console.log(this.incorrectGuesses)
       turn.giveFeedback()
       this.turnsCount ++
       this.returnCurrentCard()

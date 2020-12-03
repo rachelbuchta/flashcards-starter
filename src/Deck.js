@@ -1,10 +1,11 @@
+const Card = require('../src/Card')
 class Deck {
   constructor(card) {
     this.cards = [...card]
   }
 
   countCards = () => {
-    // console.log("deck:", this.cards[0])
+    console.log("deck:", this.cards.length)
     return this.cards.length
   }
 }
