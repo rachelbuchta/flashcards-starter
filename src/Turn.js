@@ -2,38 +2,35 @@ class Turn {
   constructor(guess, card) {
     this.guess = guess
     this.card = card
-    // this.isCorrect = false
+    this.isCorrect = false
   }
 
-  returnGuess = () => {
+  returnGuess() {
     return this.guess
   }
 
-  returnCard = () => {
-    // console.log(this.card)
+  returnCard() {
     return this.card
   }
 
-  evaluateGuess = () => {
+  evaluateGuess() {
     if (this.guess === this.card.correctAnswer) {
-
+      this.isCorrect = true
       return true
     }
     if (this.guess !== this.card.correctAnswer) {
+      this.isCorrect = false
       return false
     }
-
   }
 
-
-  giveFeedback = () => {
-    // console.log(this.evaluateGuess() ? 'correct!' : 'incorrect!')
-    return this.evaluateGuess() ? 'correct!' : 'incorrect!'
-
-
+  giveFeedback() {
+    if (this.evaluateGuess()) {
+      return 'correct!'
+    } else {
+      return 'incorrect!'
+    }
   }
 }
-
-
 
 module.exports = Turn

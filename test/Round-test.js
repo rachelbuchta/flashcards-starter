@@ -3,7 +3,7 @@ const expect = chai.expect
 
 const Round = require('../src/Round')
 const Deck = require('../src/Deck')
-const Turn = require('../src/Turn')
+// const Turn = require('../src/Turn')
 const Card = require('../src/Card')
 
 describe('Round', () => {
@@ -13,11 +13,10 @@ describe('Round', () => {
   let deck
   let round
 
-
   beforeEach(function() {
 
     card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
-    card2 = new Card(4, 'Question2', ['correct','wrong','maybe'], 'correct')
+    card2 = new Card(4, 'Question2', ['correct', 'wrong', 'maybe'], 'correct')
     card3 = new Card(6, 'Question3', ['up', 'down', 'around'], 'up')
     deck = new Deck([card, card2, card3])
     round = new Round(deck)
@@ -55,72 +54,64 @@ describe('Round', () => {
   })
 
   it('should evaluate if guess is correct or incorrect', () => {
-    const turn = new Turn('wrong', card2)
+    // const turn = new Turn('wrong')
+    round.takeTurn('wrong')
 
-
-    round.takeTurn('wrong', card2)
-
-    expect(turn.evaluateGuess()).to.equal(false)
+    expect(round.takeTurn()).to.equal('incorrect!')
   })
 
   it('should store incorrect guesses in an array by id', () => {
-    const turn = new Turn('wrong', card2)
-    const secondTurn = new Turn('array', card)
-    const thirdTurn = new Turn('up', card3)
+    // const turn = new Turn('wrong')
+    // const secondTurn = new Turn('array')
+    // const thirdTurn = new Turn('up')
 
-    round.takeTurn('array', card)
-    round.takeTurn('wrong', card2)
-    round.takeTurn('up', card3)
+    round.takeTurn('array')
+    round.takeTurn('wrong')
+    round.takeTurn('up')
 
     expect(round.incorrectGuesses).to.deep.equal([1, 4])
     expect(round.incorrectGuesses.length).to.equal(2)
-
   })
 
   it('should return a string of correct or incorrect', () => {
-    const turn = new Turn('wrong', card2)
 
-    round.takeTurn('wrong', card2)
 
-    expect(turn.giveFeedback()).to.equal('incorrect!')
+    round.takeTurn('wrong')
+
+    expect(round.takeTurn()).to.equal('incorrect!')
   })
 
   it('should increase turns by 1', () => {
-    const turn = new Turn('wrong', card2)
 
-    round.takeTurn('wrong', card2)
+
+    round.takeTurn('wrong')
 
     expect(round.turnsCount).to.equal(1)
   })
 
   it('should return the next card in deck array as currentCard', () => {
-    const turn = new Turn('wrong', card2)
 
-    round.takeTurn('wrong', card2)
+
+    round.takeTurn('wrong')
 
     expect(round.returnCurrentCard()).to.equal(deck.cards[1])
   })
 
   it('should calculate percent correct', () => {
-    const turn = new Turn('wrong', card2)
-    const secondTurn = new Turn('array', card)
-    const thirdTurn = new Turn('up', card3)
 
-    round.takeTurn('array', card)
-    round.takeTurn('wrong', card2)
-    round.takeTurn('up', card3)
+
+    round.takeTurn('array')
+    round.takeTurn('wrong')
+    round.takeTurn('up')
 
     expect(round.calculatePercentCorrect()).to.equal(67)
   })
 
   it('should print a string with the percent correct', () => {
-    const turn = new Turn('wrong', card2)
-    const secondTurn = new Turn('array', card)
-    const thirdTurn = new Turn('up', card3)
 
-    round.takeTurn('array', card)
-    round.takeTurn('wrong', card2)
-    round.takeTurn('up', card3)
+    round.takeTurn('array')
+    round.takeTurn('wrong')
+    round.takeTurn('up')
     round.calculatePercentCorrect()
 
     expect(round.endRound()).to.equal('**Round Over!** You answered 67% of the questions correctly!')
