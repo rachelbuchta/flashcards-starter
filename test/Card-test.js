@@ -7,7 +7,6 @@ describe('Card', () => {
 
   it('should be a function', () => {
 
-
     expect(Card).to.be.a('function')
   })
 

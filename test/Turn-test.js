@@ -36,8 +36,8 @@ describe('Turn', () => {
 
   it('should take in current Card as an argument', () => {
 
-    expect(turn.activeCard).to.equal(card)
-    expect(secondTurn.activeCard).to.equal(card2)
+    expect(turn.card).to.equal(card)
+    expect(secondTurn.card).to.equal(card2)
   })
 
   it('should return users guess', () => {

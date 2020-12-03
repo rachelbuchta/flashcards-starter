@@ -8,14 +8,13 @@ describe('Deck', () => {
   let card
   let card2
   let card3
-
   let deck
 
   beforeEach(function() {
     card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
     card2 = new Card(4, 'Question2', ['correct', 'wrong', 'maybe'], 'correct')
     card3 = new Card(6, 'Question3', ['up', 'down', 'around'], 'up')
-    
+
     deck = new Deck([card, card2, card3])
   })
 
