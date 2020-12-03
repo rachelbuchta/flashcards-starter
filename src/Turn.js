@@ -10,7 +10,7 @@ class Turn {
   }
 
   returnCard = () => {
-    return this.card
+    return this.activeCard
   }
 
   evaluateGuess = () => {
@@ -25,7 +25,7 @@ class Turn {
   }
 
   giveFeedback = () => {
-    if(this.evaluateGuess()) {
+    if (this.evaluateGuess()) {
       return 'correct!'
     } else {
       return 'incorrect!'

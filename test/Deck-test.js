@@ -2,21 +2,20 @@ const chai = require('chai')
 const expect = chai.expect
 
 const Deck = require('../src/Deck')
-const Turn = require('../src/Turn')
 const Card = require('../src/Card')
 
 describe('Deck', () => {
   let card
   let card2
   let card3
-  let turn
+
   let deck
 
   beforeEach(function() {
     card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
-    card2 = new Card(4, 'Question2', ['correct','wrong','maybe'], 'correct')
+    card2 = new Card(4, 'Question2', ['correct', 'wrong', 'maybe'], 'correct')
     card3 = new Card(6, 'Question3', ['up', 'down', 'around'], 'up')
-    turn = new Turn('object', card)
+    
     deck = new Deck([card, card2, card3])
   })
 

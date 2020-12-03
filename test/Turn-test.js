@@ -11,10 +11,10 @@ describe('Turn', () => {
   let secondTurn
 
   beforeEach(function() {
-     card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
-     card2 = new Card(4, 'Question2', ['correct','wrong','maybe'], 'correct')
-     turn = new Turn('object', card)
-     secondTurn = new Turn('wrong', card2)
+    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
+    card2 = new Card(4, 'Question2', ['correct', 'wrong', 'maybe'], 'correct')
+    turn = new Turn('object', card)
+    secondTurn = new Turn('wrong', card2)
   })
 
   it('should be a function', () => {
@@ -36,15 +36,9 @@ describe('Turn', () => {
 
   it('should take in current Card as an argument', () => {
 
-    expect(turn.card).to.equal(card)
-    expect(secondTurn.card).to.equal(card2)
+    expect(turn.activeCard).to.equal(card)
+    expect(secondTurn.activeCard).to.equal(card2)
   })
-
-  // it('should have a property of isCorrect that defaults to false', () => {
-  //
-  //   expect(turn.isCorrect).to.equal(false)
-  //   expect(secondTurn.isCorrect).to.equal(false)
-  // })
 
   it('should return users guess', () => {
 

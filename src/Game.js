@@ -13,22 +13,19 @@ class Game {
   start = () => {
     const newCards = prototypeQuestions.map(cardData => new Card(cardData.id, cardData.question, cardData.answers, cardData.correctAnswer))
     const newDeck = new Deck(newCards)
-    // console.log(newCards)
     newDeck.cards.push(newCards)
     this.currentRound = new Round(newDeck)
     this.printMessage(newDeck, this.currentRound)
     this.printQuestion(this.currentRound)
-    // console.log(this.currentRound)
-    // console.log(newDeck.cards)
   }
 
   printMessage(deck, round) {
-      console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
+    console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
 -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
-      util.main(round);
+    util.main(round);
   }
 }
 
