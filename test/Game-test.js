@@ -20,28 +20,26 @@ describe('Game', () => {
   //   deck = new Deck([...card])
   //   card = new Card(id, question, answers, correctAnswer)
   // })
-
+//should keep traack of currentRound
   it('it should be a function', () => {
     let game = new Game()
-    // let round = new Round(deck)
-    // let deck = new Deck([...card])
-    // let card = new Card(id, question, answers, correctAnswer)
 
     expect(Game).to.be.a('function')
   })
 
   it('should be an instance of Game', () => {
     let game = new Game()
-    // let round = new Round(deck)
-    // let deck = new Deck([...card])
-    // let card = new Card(id, question, answers, correctAnswer)
 
     expect(game).to.be.an.instanceof(Game)
   })
 
   it('should create cards', () => {
+    // let card = new Card(id, question, answers, correctAnswer)
+    // let deck = new Deck(card)
+    // let round = new Round(deck)
     let game = new Game()
 
-    expect(game.start()).to.equal([...new Card(['id']['question']['answers']['correctAnswer'])])
+
+    expect(game.start()).to.equal([...card])
   })
 })

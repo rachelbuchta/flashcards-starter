@@ -6,19 +6,20 @@ const Round = require('../src/Round')
 const Deck = require('../src/Deck')
 
 class Game {
-  constructor(round) {
-    this.currentRound = round
+  constructor() {
+    this.currentRound;
   }
 
-  start = (deck,round) => {
-    const newCards = data.prototypeData.map(cardData => new Card(cardData['id'], cardData['question'], cardData['answers'], cardData['correctAnswer']))
+  start = () => {
+    const newCards = prototypeQuestions.map(cardData => new Card(cardData.id, cardData.question, cardData.answers, cardData.correctAnswer))
     const newDeck = new Deck(newCards)
+    // console.log(newCards)
     newDeck.cards.push(newCards)
-    const newRound = new Round(newDeck)
-    this.printMessage(newDeck, newRound)
-    this.printQuestion(newRound)
-    console.log(newRound)
-    console.log(newDeck.cards)
+    this.currentRound = new Round(newDeck)
+    this.printMessage(newDeck, this.currentRound)
+    this.printQuestion(this.currentRound)
+    // console.log(this.currentRound)
+    // console.log(newDeck.cards)
   }
 
   printMessage(deck, round) {
@@ -32,7 +33,3 @@ class Game {
 }
 
 module.exports = Game
-
-//
-// const newCards = prototypeData.map(cardData => new Card([]))
-// array.map(cardData => new Card(cardData[‘id’], …) ) 
