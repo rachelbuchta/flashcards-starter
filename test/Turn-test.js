@@ -12,9 +12,9 @@ describe('Turn', () => {
   let secondTurn
 
   beforeEach(function() {
-    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
-    card2 = new Card(4, 'Question2', ['correct', 'wrong', 'maybe'], 'correct')
-    turn = new Turn('object', card)
+    card = new Card(1, 'Question1', ['blue', 'yellow', 'green'], 'green')
+    card2 = new Card(2, 'Question2', ['correct', 'wrong', 'maybe'], 'correct')
+    turn = new Turn('green', card)
     secondTurn = new Turn('wrong', card2)
   })
 
@@ -31,7 +31,7 @@ describe('Turn', () => {
 
   it('should take in a users guess as an argument', () => {
 
-    expect(turn.guess).to.equal('object')
+    expect(turn.guess).to.equal('green')
     expect(secondTurn.guess).to.equal('wrong')
   })
 
@@ -43,7 +43,7 @@ describe('Turn', () => {
 
   it('should return users guess', () => {
 
-    expect(turn.returnGuess()).to.equal('object')
+    expect(turn.returnGuess()).to.equal('green')
     expect(secondTurn.returnGuess()).to.equal('wrong')
   })
 
@@ -53,23 +53,18 @@ describe('Turn', () => {
     expect(secondTurn.returnCard()).to.equal(card2)
   })
 
-  it('should check to see if the user guess is correct', () => {
+  it('should check to see if the users guess is correct', () => {
 
     expect(turn.evaluateGuess()).to.equal(true)
     expect(secondTurn.evaluateGuess()).to.equal(false)
   })
 
-  it('should return a string of correct if guess is right', () => {
+  it('should return a string of correct if guess is right and a string of incorrect if guess is wrong', () => {
 
-    turn.evaluateGuess()
+    turn.evaluateGuess('green')
+    turn.evaluateGuess('wrong')
 
     expect(turn.giveFeedback()).to.equal('correct!')
-  })
-
-  it('should return a string of incorrect if guess is wrong', () => {
-
-    secondTurn.evaluateGuess()
-
     expect(secondTurn.giveFeedback()).to.equal('incorrect!')
   })
 })

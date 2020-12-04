@@ -23,7 +23,7 @@ class Game {
 
   printMessage(deck) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
+  -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
