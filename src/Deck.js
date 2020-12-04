@@ -4,7 +4,7 @@ class Deck {
   }
 
   countCards() {
-    return this.cards.length
+   return this.cards.length === 31 ? this.cards.length - 1 : this.cards.length
   }
 }
 

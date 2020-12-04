@@ -14,22 +14,11 @@ class Turn {
   }
 
   evaluateGuess() {
-    if (this.guess === this.card.correctAnswer) {
-      this.isCorrect = true
-      return true
-    }
-    if (this.guess !== this.card.correctAnswer) {
-      this.isCorrect = false
-      return false
-    }
+    return this.returnGuess() === this.card.correctAnswer ? true : false
   }
 
   giveFeedback() {
-    if (this.evaluateGuess()) {
-      return 'correct!'
-    } else {
-      return 'incorrect!'
-    }
+    return this.evaluateGuess() ? 'correct!' : "incorrect!"
   }
 }
 
