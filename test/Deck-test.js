@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const chai = require('chai')
 const expect = chai.expect
 
@@ -11,10 +12,9 @@ describe('Deck', () => {
   let deck
 
   beforeEach(function() {
-    card = new Card(1, 'What allows you to define a set of related information using key-value pairs?', ['object', 'array', 'function'], 'object')
-    card2 = new Card(4, 'Question2', ['correct', 'wrong', 'maybe'], 'correct')
-    card3 = new Card(6, 'Question3', ['up', 'down', 'around'], 'up')
-
+    card = new Card(1, 'Question1', ['blue', 'yellow', 'green'], 'green')
+    card2 = new Card(2, 'Question2', ['correct', 'wrong', 'maybe'], 'correct')
+    card3 = new Card(3, 'Question3', ['up', 'down', 'around'], 'down')
     deck = new Deck([card, card2, card3])
   })
 

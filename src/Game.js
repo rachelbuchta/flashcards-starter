@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 const data = require('./data')
 const prototypeQuestions = data.prototypeData
 const util = require('./util')
@@ -16,17 +17,17 @@ class Game {
     const newDeck = new Deck(newCards)
     newDeck.cards.push(newCards)
     this.currentRound = new Round(newDeck)
-    this.printMessage(newDeck, this.currentRound)
+    this.printMessage(newDeck)
     this.printQuestion(this.currentRound)
   }
 
-  printMessage(deck, round) {
+  printMessage(deck) {
     console.log(`Welcome to FlashCards! You are playing with ${deck.countCards()} cards.
------------------------------------------------------------------------`)
+  -----------------------------------------------------------------------`)
   }
 
   printQuestion(round) {
-    util.main(round);
+    util.main(round)
   }
 }
 
