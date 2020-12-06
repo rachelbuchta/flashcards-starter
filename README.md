@@ -33,7 +33,7 @@ node index.js
 
  ## Future Iterations
  
- Currently, there are no planned additions to this tic-tac-toe game.
+ Currently, there are no planned additions to this FlashCards game.
  
  If I did, I would add a feature that would allow the user to review their incorrect answers and try again.
  
